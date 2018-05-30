@@ -1,0 +1,20 @@
+文件：
+open(文件路径，打开模式)返回一个文件操作对象
+f.close() 关闭文件
+f.readline() 读一行
+f.readlines() 读多行
+f.write(字节串/字符) 写一行
+f.writelines(列表) 写多行
+f.flush()
+
+文件的打开模式:
+'r' 从磁盘中读取数据，单向作用
+'w'
+'x'
+'a' append追加，
+'b'  二进制文件
+'t'  text文本文件
+'+'  更新文件
+
+
+
