@@ -1,0 +1,54 @@
+bytes类型：只能保存0-255之间的数，以字节为单位存储数据。[0-2**8-1]
+
+bytes常量的表示方式:
+  b''         空字节串
+  b'ABCD'     有4个字节的字节串
+  b'\x41\x42'  有两个字节的字节串 #b'AB'
+  
+bytes的运算:
++ += * *=
+< <= > >=
+== !=
+in /not in
+B=b'ABCD'
+b'D' in B #True
+
+bytes 相关的函数:
+len(x) 求字节个数
+max(x)
+min(x)
+sum(x)
+any(x) #True or False
+all(x) #True or False
+
+创建字节串(bytes)的函数：
+bytes(整型可迭代对象)
+bytes(字符串，encoding='utf-8')
+bytes(整数)
+bytes() 创建空的字节串
+bytes(10) #b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+bytes(字节串，encoding='utf-8')
+
+字节串可以看做是序列
+字节串是不可变的
+
+bytes和str转换
+str--->bytes
+  str.encode(encoding='utf-8')方法来转换
+例：
+  b='英文abc'.encode('utf-8')
+  
+bytes--->str
+  B.decode(encoding='utf-8')
+ 例:
+  s=b'\xe8\x8b\xb1\xe6'.decode('utf-8')
+  
+ 练习：写一个程序从键盘输入一段字符串，将其字符串转换为字节串(bytes)后计算长度并打印此字节串,将此字节串再转换为字符串。比较此字符串是否与之前输入的字符串相同
+a=input('请输入一段字符串:')
+b=a.encode('utf-8')
+len(b)
+print('转换成字节串为:',b,'此字节串的长度为:',len(b))
+print('两者是否相同:',b==a)
+ 
+ 
+  
