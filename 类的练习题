@@ -1,0 +1,33 @@
+#自己写一个类student，此类的对象有属性name，age，score，用来保存学生的姓名，年龄，成绩，用input读入5个学生相关信息，
+#用对象来存储这些信息(不用字典),打印5个学生信息。
+#思路：首先定义一个student学生类，类里面包含学生姓名，年龄，成绩这3个信息。用self.xxx赋值。第二是def一个show_info打印学生信息。
+#把对象学生1多信息传入set_info中，依次传入剩下4个学生信息。
+#用show_info打印出来这5个学生信息.
+class Student:
+    def set_info(self, name, age=0, score=0):
+        '''此方法用来给学生对象添加姓名，年龄，成绩'''
+        self.name = name
+        self.age = age
+        self.score = score
+
+    def show_info(self):
+        '''此处显示学生的信息'''
+        print(self.name,'今年:',self.age,'岁','成绩是:',self.score,'分')
+
+
+s1=Student()
+s1.set_info('赵',20,100)
+s2=Student()
+s2.set_info('钱',20,97)
+s3=Student()
+s3.set_info('孙',20,88)
+s4=Student()
+s4.set_info('李',21,76)
+s5=Student()
+s5.set_info('周',22,94)
+
+s1.show_info()
+s2.show_info()
+s3.show_info()
+s4.show_info()
+s5.show_info()
