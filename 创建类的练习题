@@ -1,0 +1,71 @@
+#练习:
+#自己定义一个类Human（人类),有两个属性：姓名/年龄，有3个方法：设置姓名(setName)作用是添加或修改,设置年龄(setage)添加或修改
+#显示信息(infos)显示人的信息
+#用此类来创建 两个对象:张3，20岁。李四，21岁。
+
+
+class Human:
+    '''这这里定义了一个Human类，描述姓名/年龄'''
+    def setName(self,n):
+        '设置姓名'
+
+        self.name=n
+
+    def setAge(self,a):
+        '设置年龄'
+
+        self.age=a
+
+
+
+    def infos(self):
+        '''显示个人信息'''
+        print('个人信息:','姓名:',self.name,'年龄:',self.age)
+
+name1=Human()
+name1.setName('张三')
+name1.setAge('20岁')
+name1.infos()
+
+
+name2=Human()
+name2.setName('李四')
+name2.setAge('23岁')
+name2.infos()
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+class Dog:
+    '''这是一种小动物的定义，该种动物属于犬科。'''
+    def say(self):
+        print('汪！')
+    def eat(self,that): #类内的函数叫实例方法
+        '为狗进食，同时在food属性记住吃的是什么'
+        print('小狗正在吃:',that)
+        self.food=that
+    def food_info(self):
+        '''显示小狗的进食信息'''
+        print('小狗刚吃过的是:',self.food)
+
+    def run(self,speed):#给一个类添加一个实例，类内的对象都有了一个实例
+        print('小狗以',speed,'公里/小时的速度奔跑')
+
+
+
+
+dog1=Dog()
+dog1.say()    #实例的方法名，对对象来调用，推荐使用该方法。
+Dog.say(dog1) #对类来调用，dog1传给self了。
+
+dog1.eat('骨头')
+dog1.food='骨头'
+print(dog1.food)   #'骨头'
+dog1.food_info()   #小狗刚吃过的是:骨头
+
+#创建第二个小狗对象
+dog2=Dog()
+dog2.say()
+dog2.eat('狗粮')
+dog2.food_info()
+
+dog1.run(23)
+dog2.run(30)
