@@ -1,0 +1,38 @@
+class ICBC:
+    moneys=100000 #壹拾万元
+
+    @classmethod#装饰器函数，通过这个函数可以直接访问到类变量。
+    def total_money(cls):#类方法的第一个参数是类的实例，约定写为cls
+        print('工商银行总资金数:',cls.moneys)
+
+
+    def __init__(self,b):
+        self.branch =b
+        self.money =500
+        self.__class__.moneys -=500
+
+
+    def address(self):
+        print('地址为:',self.branch)
+
+
+
+
+
+print(ICBC.total_money())#调用类方法,不用借助实例来调用，因为有一个classmethod装饰器,类方法只能访问到类，不能访问到类内的变量
+b1=ICBC('广渠门支行')
+print(b1.total_money())#可以b1对象来调用ICBC这个类
+print('广渠门支行总资金数:',b1)
+
+————————————————————————————---————————————————————————————————————————————————————————————————————————————————————————
+class A:
+    @staticmethod #静态方法，定义在类的内部，只能凭借该类和实例调用。
+    '''静态方法与普通函数定义相同'''
+    def myadd(a,b): #不需要传入self实例参数和cls类参数
+        return a+b
+
+
+print(A.myadd(100,200))#调用时:借助A.myadd 来调用，即用A类来调用
+a=A()
+print(a.myadd(300,400)) #调用时：借助a.myadd来调用，用a变量来调用
+print(myadd(1,2)) #报错，myadd' is not defined
