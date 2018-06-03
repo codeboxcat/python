@@ -1,0 +1,28 @@
+import math
+
+class Circle:
+    '''定一个圆类'''
+    def  __init__(self,r):
+        self.radius=r #半径
+
+
+    @property
+    def area(self): #面积函数
+        print('area函数被调用了。')
+        return math.pi*(self.radius**2) #派r方，
+
+    @area.setter #被上面的装饰器伪装成了一个函数
+    def area(self,a):#a代表面积,覆盖了上面的area。
+        self.radius=math.sqrt(a/math.pi)# 求半径
+
+#再以上两个装饰器中。area被装饰了两次，第一次装饰成半径求面积，第二次装饰成面积求半径。并没有引入更多的变量。
+
+
+c1=Circle(10)
+print(c1.area) #求面积，当半径为10时
+# c1.area=10000 #不能直接赋值，property伪装出area的属性。
+c1.area=31415.926#求半径，当面积为31415.926
+print(c1.radius) #求半径
+
+#上面求面积和半径只用到了一个area变量。
+# print(c1.area)
