@@ -1,0 +1,19 @@
+class MyClass:
+    pass
+
+
+obj=MyClass# obj是一个对象
+dir(obj)#返回当前范围内的变量、方法和定义的类型列表
+obj.a1=100 #给对象a1赋值100
+setattr(obj,'a2',200)#添加一个对象a2一定是字符串并赋值200
+print(obj.__dict__)
+
+print(hasattr(obj,'a1') ) #判断是否有a1，True
+print(hasattr(obj,'a2') ) #True
+print(hasattr(obj,'a3')  )#False
+
+print(getattr(obj,'a3',0))#True 如果有a3则返回值，如果没有则返回default参数0
+
+
+del obj.a2 #用del语句可以删除a2对象，del可以删除变量也可以删除对象。
+print(delattr(obj,'a1')) #删除a1,返回None
