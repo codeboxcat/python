@@ -1,0 +1,43 @@
+用于类的函数有：
+isinstance(obj,类或类的元组)返回这个对象obj是否为某个类或某些类的对象，如果是返回True，否则返回False
+
+type(obj)返回对象的类型，比如int，str，complex，set，dict,list等等。
+
+
+
+
+class A:
+    pass
+
+a=A()#a绑定了一个A创建的对象，a是A对象的实例
+
+print(isinstance(a,A))#True
+print(isinstance(a,str)) #False
+print(isinstance(a,int))#False
+print(isinstance(a,(str,int,bool,A)))#True,加元组判断a类型为A
+
+def fn(x):
+    '''在函数内部不知道x绑定的是什么类型'''
+    if isinstance(x,A):
+        print('x是一个A类型的实例')
+    elif isinstance(x,int):
+        print('x为整数')
+
+
+
+fn(1) #传数字可以
+fn(a) #传一个变量
+fn([1,2,3]) #传一个列表
+if type(a)==A:
+    print('a是A类型')
+print(type(a))
+print(type(a)())#A()
+
+print(type(1))#int
+print(type('1'))#str
+print(type([1,2,3]))
+print(type({1,2,3})) #set
+print(type({'a':1})) #dict
+print(type({1:0,2:1,3:2})) #dict
+print(type({})) #dict
+print(len({1:0,2:1,3:2}))#3
