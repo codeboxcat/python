@@ -1,0 +1,59 @@
+class Mynumber:
+    def __init__(self):
+        self.somevar=100
+
+n=Mynumber() # 构造方法
+
+print(n.somevar)#100
+
+#初始化Mynumber中的somevar的值为100，然后在实例化n.somevar 就能直接调用somevar的值了。
+#如果说没有用__init__这种构造方法来定义函数并初始化值的话，就不能够调用n.somevar。
+
+进阶：当构造方法中的初始值无法继承的问题：
+class Bird:
+    def __init__(self):
+        self.hungry=True
+
+    def eat(self):
+        if self.hungry:
+            print('要吃东西！')
+        else:
+            print("No,thanks!")
+
+
+class SongBird(Bird):
+    def __init__(self):
+        self.sound='Squawk'
+
+    def sing(self):
+        print(self.sing)
+
+sb=SongBird()
+# sb.sing()# 正常输出：要吃东西！
+sb.eat()#无法输出，AttributeError:'SongBird' object has no attribute 'hungry'
+
+解决办法：
+1：调用未绑定的超类构造方法
+class SongBird(Bird):
+    def __init__(self):
+        Bird.__init__(self) #调用未绑定的超类构造方法（调Bird这个超类）
+        '''在调用一个实例的方法时，该方法的self参数会自动绑定到实例上(称为绑定方法)
+            如果直接调用此类方法,比如Bird.__init__，那么就没有实例会被绑定，可以自由提供需要的self参数(未绑定方法)
+        '''
+        self.sound='Squawk'
+
+    def sing(self):
+        print(self.sing)
+
+2，使用super函数：新版
+class SongBird(Bird):
+    def __init__(self):
+        super(SongBird,self).__init__() #使用super函数
+        '''super函数会查找所有的超类，以及超类的超类，直到找到所需要的特征位置.
+        '''
+        self.sound='Squawk'
+
+    def sing(self):
+        print(self.sing)
+
+
