@@ -40,3 +40,6 @@ else:
     print('53不是素数')
 
 print(Primes.isprime(53))
+
+
+#def sprite() 在3个地方调用，第一在类外调用，第二在类内调用，第三用静态方法调用（需要加一个self.对象来使用）
